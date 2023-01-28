@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_table_answers
+      author: Yauheni Haikou
+      changes:
+        - createTable:
+            tableName: answers
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  valueSequenceNext: answers_id_seq
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: answer
+                  type: varchar(255)
+              - column:
+                  name: correct
+                  type: boolean
+              - column:
+                  name: question_id
+                  type: bigint
+                  constraints:
+                    foreignKey:
+                      referencedColumnNames: id
+                      referencedTableName: questions
+                    nullable: false
+                    foreignKeyName: question_id_fk

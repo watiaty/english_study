@@ -1,0 +1,29 @@
+server:
+  port: 9090
+
+spring:
+  config:
+    activate:
+      on-profile: develop
+  application:
+    name: english-study
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+          time_zone: UTC
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  liquibase:
+    enabled: true
+    drop-first: false
+    change-log: classpath:db/changelog/changelog_master.yaml
+    default-schema: public
+  datasource:
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/englishStudy
