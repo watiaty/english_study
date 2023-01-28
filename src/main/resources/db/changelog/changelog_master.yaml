@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset_create_table/create_table_users.yaml
+  - include:
+      file: db/changelog/changeset_create_table/create_table_answers.yaml
+  - include:
+      file: db/changelog/changeset_create_table/create_table_history_questions.yaml
+  - include:
+      file: db/changelog/changeset_create_table/create_table_questions.yaml
+  - include:
+      file: db/changelog/changeset_create_table/create_table_themes.yaml

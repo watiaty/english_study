@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_table_users
+      author: Yauheni Haikou
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  valueSequenceNext: users_id_seq
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(120)
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: surname
+                  type: varchar(255)
+              - column:
+                  name: username
+                  type: varchar(20)
+              - column:
+                  name: role
+                  type: varchar(31)
+                  constraints:
+                    nullable: false

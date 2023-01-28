@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_table_history_questions
+      author: Yauheni Haikou
+      changes:
+        - createTable:
+            tableName: history_questions
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  valueSequenceNext: history_questions_id_seq
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    foreignKey:
+                      referencedColumnNames: id
+                      referencedTableName: users
+                    nullable: false
+                    foreignKeyName: user_id_fk
+              - column:
+                  name: question_id
+                  type: bigint
+                  constraints:
+                    foreignKey:
+                      referencedColumnNames: id
+                      referencedTableName: questions
+                    nullable: false
+                    foreignKeyName: question_id_fk
+              - column:
+                  name: attempts
+                  type: smallint
+                  value: "0"
+              - column:
+                  name: resolved
+                  type: boolean
+                  value: "false"

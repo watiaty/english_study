@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_table_questions
+      author: Yauheni Haikou
+      changes:
+        - createTable:
+            tableName: questions
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  valueSequenceNext: questions_id_seq
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: question
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: theme_id
+                  type: bigint
+                  constraints:
+                    foreignKey:
+                      referencedColumnNames: id
+                      referencedTableName: themes
+                    nullable: false
+                    foreignKeyName: theme_id_fk
